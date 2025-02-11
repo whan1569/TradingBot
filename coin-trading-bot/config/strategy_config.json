@@ -1,1 +1,35 @@
-{}
+{
+    "rsi_threshold": {
+      "overbought": 70,
+      "oversold": 30
+    },
+    "bollinger_bands": {
+      "window": 20,
+      "std_dev": 2
+    },
+    "moving_average": {
+      "short_window": 9,
+      "long_window": 50
+    },
+    "risk_management": {
+      "stop_loss": 0.02,
+      "take_profit": 0.05
+    },
+    "sentiment_threshold": {
+      "fear": 20,
+      "greed": 80
+    },
+    "volume_threshold": {
+      "min_volume": 100000,
+      "high_volume": 500000
+    },
+    "leverage": {
+      "max_leverage": 5,
+      "default_leverage": 2
+    },
+    "signal_weights": {
+      "rsi": 0.3,
+      "bollinger": 0.3,
+      "moving_average": 0.4
+    }
+}

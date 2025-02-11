@@ -34,6 +34,7 @@
 │   ├── notifier.py              # 알림 시스템 (거래 알림, 경고 등)
 │
 ├── utils/
+│   ├── config_loader.py         # 설정 파일 로드 함수 (config.json, strategy_config.json, api_keys.json)
 │   ├── data_loader.py           # 데이터 로딩 함수
 │   ├── api_connector.py         # API 연결 함수 (Binance, LunarCrush 등)
 │   ├── logger.py                # 로깅 관련 함수
