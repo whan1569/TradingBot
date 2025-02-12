@@ -1,0 +1,27 @@
+# requirements.txt
+
+# 기본 라이브러리
+numpy
+pandas
+matplotlib
+seaborn
+
+# API 요청 및 데이터 처리
+requests
+json5
+
+# Binance API
+python-binance
+
+# 데이터 로깅 및 환경 변수 관리
+loguru
+python-dotenv
+
+# 백테스트 및 최적화 (추후 필요)
+backtrader
+
+# AI 및 머신러닝 관련 (추후 확장 가능)
+scikit-learn
+tensorflow
+torch
+transformers
