@@ -1,0 +1,14 @@
+{
+    "api": {
+        "binance": {
+            "api_key": "",
+            "api_secret": ""
+        }
+    },
+    "trading": {
+        "symbol": "BTC/USDT",
+        "trade_amount": 0.001,
+        "stop_loss": 0.5,
+        "take_profit": 1.0
+    }
+}
