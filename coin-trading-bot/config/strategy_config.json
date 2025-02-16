@@ -1,0 +1,5 @@
+{
+    "risk_level": "medium",
+    "max_position_size": 0.1,
+    "stop_loss_percentage": 2.0
+}
