@@ -1,6 +1,0 @@
-{
-    "data_path": "D:/coin-trading-bot/data",
-    "max_ram_usage": "8GB",
-    "max_gpu_memory": "8GB",
-    "cpu_cores": 6
-}

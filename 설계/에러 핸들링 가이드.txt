@@ -1,0 +1,169 @@
+### **📌 에러 핸들링 가이드 (Cursor 최적화 적용 - AMD64 & RTX 3060 기준, 1분 단위 트레이딩 반영)**  
+
+트레이딩 봇이 실행 중 발생할 수 있는 주요 에러 유형을 정의하고,  
+**Cursor가 쉽게 이해할 수 있도록** 해결 방법을 포함한 에러 핸들링 가이드를 작성했습니다.  
+
+---
+
+## **1️⃣ 에러 핸들링 개요**  
+- **에러 발생 시 즉시 로그 기록 (`error_handler.py` 활용)**  
+- **심각도 분류 → 자동 복구 또는 알림 전송**  
+- **재시도 가능 여부 판단 후 처리**  
+
+```python
+try:
+    # 실행 코드
+except 특정에러 as e:
+    error_handler.log(e)  # 에러 로깅
+    error_handler.handle(e)  # 에러 대응 (재시도 or 알림)
+```
+
+---
+
+## **2️⃣ 주요 에러 및 해결 방법**  
+각 에러 유형별 설명, 원인, 해결 방법을 정리했습니다.  
+
+### ✅ **1. API 요청 관련 에러**  
+| 에러 코드 | 설명 | 원인 | 해결 방법 |  
+|----------|------|------|------------|  
+| `400` | Bad Request | 요청 데이터 오류 | 요청 파라미터 확인 |  
+| `401` | Unauthorized | API 키 오류 | API 키 설정 확인 |  
+| `403` | Forbidden | 권한 부족 | API 권한 확인 |  
+| `429` | Rate Limit Exceeded | API 요청 과다 | 1분 단위 요청 제한 준수 |  
+| `500` | Internal Server Error | 서버 오류 | 재시도 & 대체 API 활용 |  
+
+**📌 예제: API 요청 실패 자동 재시도**  
+```python
+import time
+import requests
+
+def fetch_data():
+    for _ in range(3):  # 최대 3회 재시도
+        try:
+            response = requests.get("https://api.binance.com/api/v3/ticker/price")
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 429:
+                time.sleep(5)  # 요청 과부하 시 대기 후 재시도
+            else:
+                error_handler.log(e)
+                return None
+```
+
+---
+
+### ✅ **2. WebSocket 연결 오류**  
+| 에러 코드 | 설명 | 원인 | 해결 방법 |  
+|----------|------|------|------------|  
+| `1006` | Connection Lost | 네트워크 단절 | 자동 재연결 |  
+| `1011` | Server Error | Binance 서버 문제 | 일정 시간 후 재연결 |  
+| `4000` | WebSocket Disconnected | 연결 종료됨 | 재시도 실행 |  
+
+**📌 예제: WebSocket 자동 재연결**  
+```python
+import websocket
+
+def on_close(ws, close_status_code, close_msg):
+    error_handler.log(f"WebSocket 연결 종료: {close_status_code}, {close_msg}")
+    reconnect()
+
+def reconnect():
+    time.sleep(3)  # 3초 후 재연결
+    start_websocket()
+
+def start_websocket():
+    ws = websocket.WebSocketApp("wss://stream.binance.com:9443/ws/btcusdt@trade", on_close=on_close)
+    ws.run_forever()
+
+start_websocket()
+```
+
+---
+
+### ✅ **3. 주문 실행 오류**  
+| 에러 코드 | 설명 | 원인 | 해결 방법 |  
+|----------|------|------|------------|  
+| `-1013` | Invalid Order | 주문 수량 오류 | 최소 주문 금액 확인 |  
+| `-1021` | Timestamp Error | 시간 동기화 문제 | 서버 시간 동기화 |  
+| `-2010` | Insufficient Funds | 잔고 부족 | 투자 금액 확인 |  
+| `-5021` | Market Closed | 시장 마감 | 주문 취소 후 대기 |  
+
+**📌 예제: 잔고 부족 시 대응**  
+```python
+def place_order(symbol, amount):
+    try:
+        order = binance_api.create_order(symbol, amount)
+    except BinanceAPIException as e:
+        if "Insufficient Funds" in str(e):
+            error_handler.log("잔고 부족! 주문 취소")
+        else:
+            error_handler.log(e)
+```
+
+---
+
+### ✅ **4. 시스템 리소스 관련 오류**  
+| 에러 유형 | 설명 | 원인 | 해결 방법 |  
+|----------|------|------|------------|  
+| `MemoryError` | RAM 부족 | 메모리 사용 과다 | Dask & Lazy Loading 활용 |  
+| `TimeoutError` | 연산 시간 초과 | 데이터 처리 지연 | 병렬 처리 최적화 |  
+| `GPU Overload` | GPU 과부하 | RTX 3060 리소스 초과 | 모델 부하 조절 |  
+
+**📌 예제: 메모리 최적화**  
+```python
+import dask.dataframe as dd
+
+df = dd.read_parquet("data.parquet")  # Lazy Loading 적용
+df.compute()  # 필요한 순간에만 연산 실행
+```
+
+---
+
+### ✅ **5. 데이터 저장 및 로깅 오류**  
+| 에러 유형 | 설명 | 원인 | 해결 방법 |  
+|----------|------|------|------------|  
+| `FileNotFoundError` | 파일 없음 | 경로 오류 | 경로 확인 후 생성 |  
+| `PermissionError` | 권한 부족 | 파일 접근 문제 | 관리자 권한 확인 |  
+| `DatabaseError` | DB 저장 실패 | Parquet 저장 오류 | 데이터 형식 점검 |  
+
+**📌 예제: Parquet 저장 오류 처리**  
+```python
+import pandas as pd
+
+try:
+    df.to_parquet("data.parquet")
+except Exception as e:
+    error_handler.log(f"Parquet 저장 실패: {e}")
+```
+
+---
+
+## **3️⃣ 에러 발생 시 처리 흐름**  
+📌 **Cursor가 이해하기 쉬운 흐름도**  
+```plaintext
+1️⃣ 에러 발생
+   ⬇  
+2️⃣ 심각도 분류  
+   ├─ [경미] 로그 기록 후 진행  
+   ├─ [중간] 재시도 또는 대체 API 호출  
+   └─ [심각] 즉시 알림 & 서비스 중단 예방  
+   ⬇  
+3️⃣ 복구 시도  
+   ├─ 네트워크: 재연결  
+   ├─ 주문 오류: 주문 취소 후 재요청  
+   ├─ API Rate Limit: 대기 후 재시도  
+   └─ 시스템 과부하: 리소스 최적화  
+   ⬇  
+4️⃣ 문제 해결 후 정상 운영 복귀  
+```
+
+---
+
+## **4️⃣ 결론: 안전한 에러 처리 시스템 구축 완료!**  
+🚀 **Cursor가 쉽게 이해할 수 있도록 주요 에러별 해결 방법 정리**  
+🚀 **API 요청 / WebSocket / 주문 오류 / 시스템 리소스 / 데이터 저장 문제 해결**  
+🚀 **자동 재시도 & 예외 처리 최적화 적용**  
+🚀 **로그 기록 및 실시간 모니터링 반영**  
+
+🔥 **이제 실전에서 안정적으로 운영 가능!** 🚀
