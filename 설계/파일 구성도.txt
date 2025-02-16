@@ -1,0 +1,85 @@
+D:\TradingBot\coin-trading-bot\
+├── config/                         # 설정 파일 디렉토리
+│   ├── config.json                 # 메인 설정 파일 (거래 설정, API 설정 등)
+│   ├── api_keys.json               # API 키 저장 (보안 정보)
+│   ├── trading_rules.json          # 투자 전략 및 매매 설정
+│   ├── database_config.json        # 데이터베이스 설정 (Redis, SQLite, Parquet)
+│   └── logging_config.json         # 로깅 설정
+│
+├── data/                           # 데이터 관련 모듈
+│   ├── market_data.py              # 시장 데이터 수집 (1분 단위 적용)
+│   ├── websocket_client.py         # 실시간 데이터 수신
+│   ├── database_manager.py         # 데이터베이스 관리 (Redis + SQLite + Parquet)
+│   ├── data_preprocessor.py        # 데이터 전처리 (정규화, 이상치 제거 등)
+│   ├── feature_engineering.py      # 특성 엔지니어링 (AutoML 학습용)
+│   └── raw/                        # 원시 데이터 저장소
+│
+├── utils/                          # 유틸리티 모듈
+│   ├── logger.py                   # 로깅 시스템
+│   ├── config_loader.py            # 설정 파일 로더
+│   ├── api_connector.py            # API 연결 관리 (1분 단위 호출 반영)
+│   ├── websocket_handler.py        # 웹소켓 연결 관리
+│   ├── cache_manager.py            # 캐시 관리 (Redis 활용)
+│   ├── error_handler.py            # 에러 처리
+│   └── notification_manager.py     # 알림 시스템 (Telegram, Email)
+│
+├── strategies/                     # 트레이딩 전략 모듈
+│   ├── signal_generator.py         # 매매 신호 생성
+│   ├── event_detector.py           # 시장 이벤트 감지
+│   ├── auto_strategy_selector.py   # **AutoML 기반 최적 전략 선택**
+│   ├── reinforcement_learning.py   # **강화학습 모델 (DQN, PPO, SAC)**
+│   └── risk_management.py          # 리스크 관리 (손절, 익절, 슬리피지 방지)
+│
+├── execution/                      # 주문 실행 모듈
+│   ├── order_execution.py          # 주문 실행 (1분 단위 적용)
+│   ├── adaptive_execution.py       # Adaptive Execution (VWAP/TWAP)
+│   ├── position_sizing.py          # **Binance 잔고 기반 투자 비율 계산**
+│   └── market_impact.py            # Market Impact 최소화 전략 적용
+│
+├── models/                         # ML/DL 모델
+│   ├── reinforcement_learning.py   # 강화학습 모델
+│   ├── auto_optimize.py            # 자동 최적화 (AutoML)
+│   ├── model_trainer.py            # 모델 학습 모듈
+│   ├── model_evaluator.py          # 모델 성능 평가
+│   ├── saved_models/               # 학습된 모델 저장 폴더
+│   └── backtest_results/           # 백테스트 결과 저장
+│
+├── dashboard/                      # 모니터링 대시보드
+│   ├── dashboard_main.py           # 대시보드 메인
+│   ├── dashboard_api.py            # 대시보드 API 서버
+│   ├── components/                 # 대시보드 UI 구성 요소
+│   ├── templates/                  # HTML 템플릿
+│   └── static/                     # CSS, JS 파일 저장소
+│
+├── notification/                   # 알림 시스템
+│   ├── telegram_bot.py             # 텔레그램 알림
+│   ├── email_alerts.py             # 이메일 알림
+│   └── webhook_manager.py          # Webhook 알림 시스템
+│
+├── exchanges/                      # 거래소 API 구현
+│   ├── upbit_api.py                # 업비트 API
+│   ├── binance_api.py              # **바이낸스 API (잔고 조회 + 주문 실행)**
+│   ├── binance_order_manager.py    # **바이낸스 주문 관리**
+│   ├── exchange_utils.py           # 거래소 유틸리티 함수
+│   └── api_rate_limiter.py         # API Rate Limit 관리
+│
+├── tests/                          # 테스트 코드
+│   ├── test_risk_management.py     # 리스크 관리 테스트
+│   ├── test_order_execution.py     # 주문 실행 테스트
+│   ├── test_strategy_performance.py# 전략 성능 평가 테스트
+│   ├── test_websocket.py           # WebSocket 연결 테스트
+│   └── performance/                # 성능 테스트 (속도 및 메모리)
+│
+├── scripts/                        # 스크립트
+│   ├── install.sh                  # 설치 스크립트 (Linux)
+│   ├── install.bat                 # 설치 스크립트 (Windows)
+│   ├── backtest_runner.py          # 백테스트 실행 스크립트
+│   ├── model_trainer.py            # 모델 학습 자동 실행 스크립트
+│   ├── db_cleanup.py               # 데이터베이스 정리 스크립트
+│   └── update_checker.py           # 업데이트 확인 스크립트
+│
+├── main.py                         # 메인 실행 파일 (1분 단위 트레이딩 루프)
+├── setup.py                        # 패키지 설정
+├── requirements.txt                # 의존성 목록
+├── README.md                       # 프로젝트 문서
+└── system_diagram.mmd              # **시스템 구성도 (머메이드 파일)**

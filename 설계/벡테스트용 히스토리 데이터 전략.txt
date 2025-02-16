@@ -1,0 +1,95 @@
+### **📌 백테스트용 히스토리 데이터 생성 (1분 단위 트레이딩 최적화)**  
+✅ **Binance에서 과거 데이터를 수집하여 백테스트용 데이터셋 구축**  
+✅ **Parquet 형식으로 저장하여 빠른 조회 및 분석 가능**  
+✅ **1분봉 기준으로 데이터 구성하여 트레이딩 봇과 동일한 환경 유지**  
+
+---
+
+## **1️⃣ 백테스트용 데이터 구성**  
+히스토리 데이터는 **BTC/USDT 1분봉**을 기준으로 저장하며, 주요 컬럼 구성은 다음과 같음.  
+
+| 컬럼명 | 데이터 타입 | 설명 |
+|--------|------------|-----------------------------|
+| `timestamp` | `int` | UNIX 타임스탬프 (밀리초) |
+| `datetime` | `str` | UTC 기준 날짜 및 시간 |
+| `open` | `float` | 1분봉 시가 |
+| `high` | `float` | 1분봉 고가 |
+| `low` | `float` | 1분봉 저가 |
+| `close` | `float` | 1분봉 종가 |
+| `volume` | `float` | 거래량 |
+| `trades` | `int` | 거래 횟수 |
+| `taker_buy_volume` | `float` | 매수자 주도 거래량 |
+| `taker_buy_quote_volume` | `float` | 매수자 주도 거래 금액 |
+
+---
+
+## **2️⃣ Binance API에서 히스토리 데이터 수집**  
+Binance에서 **1분봉 히스토리 데이터**를 가져와서 백테스트용으로 저장  
+
+### ✅ **(1) Binance API에서 데이터 다운로드**
+```python
+import pandas as pd
+import time
+import ccxt
+
+# Binance API 초기화
+exchange = ccxt.binance()
+
+# 히스토리 데이터 가져오기 (BTC/USDT, 1분봉)
+def fetch_ohlcv(symbol="BTC/USDT", timeframe="1m", since=None, limit=1000):
+    data = exchange.fetch_ohlcv(symbol, timeframe, since=since, limit=limit)
+    df = pd.DataFrame(data, columns=['timestamp', 'open', 'high', 'low', 'close', 'volume'])
+    df['datetime'] = pd.to_datetime(df['timestamp'], unit='ms')
+    return df
+
+# 90일치 데이터 수집 (Binance 최대 요청 개수: 1000개)
+def fetch_historical_data(days=90):
+    end_time = int(time.time() * 1000)  # 현재 시간 (밀리초)
+    all_data = []
+
+    for _ in range(days):
+        df = fetch_ohlcv(since=end_time - (1000 * 60 * 1000))  # 1000분 전 데이터 요청
+        all_data.append(df)
+        end_time = df['timestamp'].min()  # 가장 오래된 데이터 기준으로 갱신
+        time.sleep(1)  # API Rate Limit 방지
+
+    return pd.concat(all_data).sort_values(by='timestamp')
+
+# 데이터 가져오기
+df = fetch_historical_data(days=90)
+print(df.head())
+```
+
+---
+
+## **3️⃣ 데이터 저장 및 로딩 최적화**  
+데이터를 Parquet 형식으로 저장하여 빠른 조회 가능  
+
+### ✅ **(2) Parquet 파일로 저장**
+```python
+import pyarrow.parquet as pq
+import pyarrow as pa
+
+# Parquet 형식으로 저장
+def save_to_parquet(df, filename="btc_ohlcv.parquet"):
+    table = pa.Table.from_pandas(df)
+    pq.write_table(table, filename)
+    print(f"✅ {filename} 저장 완료!")
+
+save_to_parquet(df)
+```
+
+---
+
+### ✅ **(3) 저장된 Parquet 데이터 로딩**
+```python
+# Parquet 파일 로드
+def load_from_parquet(filename="btc_ohlcv.parquet"):
+    table = pq.read_table(filename)
+    df = table.to_pandas()
+    print(f"✅ {filename} 로드 완료!")
+    return df
+
+df_loaded = load_from_parquet()
+print(df_loaded.head())
+```

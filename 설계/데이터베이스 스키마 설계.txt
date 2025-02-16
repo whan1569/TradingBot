@@ -1,0 +1,163 @@
+# **📌 Binance 트레이딩 봇 데이터베이스 스키마 설계**  
+✅ **Cursor 기반 구현 최적화**  
+✅ **가용 범위: 600GB (로컬 저장소 최적화 적용)**  
+✅ **SQLite + Parquet 조합 활용 (단기 조회 + 장기 저장 최적화)**  
+
+---
+
+## **📌 1. 데이터베이스 개요**  
+🚀 **SQLite (로컬 DB) + Parquet (장기 저장) 조합**  
+📌 **주요 테이블**  
+- `market_data` → 시장 데이터 저장 (WebSocket 수집)  
+- `orders` → 주문 내역 저장 (Binance API)  
+- `trades` → 체결된 거래 내역 저장  
+- `strategies` → 매매 전략 정보 저장  
+- `performance_metrics` → 성능 지표 저장  
+
+---
+
+## **📌 2. 테이블 상세 설계**  
+
+### **1️⃣ `market_data` (실시간 시장 데이터 저장)**  
+✅ **1분 단위 캔들 & 실시간 가격 저장**  
+✅ **Binance WebSocket 데이터 활용**  
+
+```sql
+CREATE TABLE market_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,  -- 고유 ID
+    symbol TEXT NOT NULL,                  -- 거래 페어 (BTCUSDT 고정)
+    timestamp DATETIME NOT NULL,           -- 데이터 수집 시각
+    open_price REAL NOT NULL,              -- 시가
+    high_price REAL NOT NULL,              -- 고가
+    low_price REAL NOT NULL,               -- 저가
+    close_price REAL NOT NULL,             -- 종가
+    volume REAL NOT NULL                   -- 거래량
+);
+```
+
+📌 **추가 사항**  
+- 1분 단위 데이터 **Parquet 저장 (`market_data.parquet`)**  
+- SQLite는 최근 24시간 데이터만 유지 → **디스크 최적화**  
+
+---
+
+### **2️⃣ `orders` (주문 내역 저장)**  
+✅ **주문 생성 시 저장 (미체결 포함)**  
+✅ **Binance API 기반 주문 관리**  
+
+```sql
+CREATE TABLE orders (
+    order_id TEXT PRIMARY KEY,             -- Binance 주문 ID
+    symbol TEXT NOT NULL,                  -- 거래 페어 (BTCUSDT 고정)
+    order_type TEXT NOT NULL,              -- 주문 유형 (시장가 / 지정가)
+    side TEXT NOT NULL,                    -- 매수 (BUY) / 매도 (SELL)
+    price REAL,                             -- 주문 가격 (시장가 주문 시 NULL)
+    quantity REAL NOT NULL,                 -- 주문 수량
+    status TEXT NOT NULL,                   -- 주문 상태 (NEW, FILLED, CANCELED)
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP  -- 주문 생성 시간
+);
+```
+
+📌 **추가 사항**  
+- **체결된 주문은 `trades` 테이블로 이동**  
+- 미체결 주문은 **주기적으로 상태 업데이트**  
+
+---
+
+### **3️⃣ `trades` (실제 체결된 거래 내역 저장)**  
+✅ **Binance API 체결 데이터 저장**  
+✅ **주문 체결된 경우만 저장**  
+
+```sql
+CREATE TABLE trades (
+    trade_id TEXT PRIMARY KEY,             -- Binance 거래 ID
+    order_id TEXT NOT NULL,                -- 매칭된 주문 ID (orders 테이블과 연결)
+    symbol TEXT NOT NULL,                  -- 거래 페어 (BTCUSDT 고정)
+    side TEXT NOT NULL,                    -- 매수 (BUY) / 매도 (SELL)
+    price REAL NOT NULL,                    -- 체결 가격
+    quantity REAL NOT NULL,                 -- 체결 수량
+    fee REAL NOT NULL,                      -- 거래 수수료
+    fee_asset TEXT NOT NULL,                -- 수수료 자산 (예: BNB)
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP  -- 체결 시간
+);
+```
+
+📌 **추가 사항**  
+- **수익률 계산을 위해 `orders` 테이블과 연결됨**  
+- 거래 기록은 **장기 저장 (`trades.parquet`)**  
+
+---
+
+### **4️⃣ `strategies` (매매 전략 정보 저장)**  
+✅ **사용한 매매 전략 기록**  
+✅ **전략별 성능 분석 가능**  
+
+```sql
+CREATE TABLE strategies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,  -- 고유 ID
+    strategy_name TEXT NOT NULL,           -- 전략 이름 (예: RSI_Overbought)
+    parameters TEXT NOT NULL,              -- 전략 파라미터 (JSON 형식)
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP  -- 전략 적용 시각
+);
+```
+
+📌 **추가 사항**  
+- 전략 변경 이력 저장 → **최적 전략 추적 가능**  
+
+---
+
+### **5️⃣ `performance_metrics` (봇 성능 지표 저장)**  
+✅ **트레이딩 봇의 실적 기록**  
+✅ **수익률, 승률, MDD 등 주요 메트릭 저장**  
+
+```sql
+CREATE TABLE performance_metrics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,  -- 고유 ID
+    timestamp DATETIME NOT NULL,           -- 메트릭 기록 시각
+    total_profit REAL NOT NULL,            -- 총 수익
+    win_rate REAL NOT NULL,                -- 승률 (%)
+    max_drawdown REAL NOT NULL,            -- 최대 낙폭 (MDD)
+    avg_trade_duration REAL NOT NULL       -- 평균 거래 지속 시간 (초)
+);
+```
+
+📌 **추가 사항**  
+- 데이터 시각화 대시보드에서 **실시간 성능 분석 가능**  
+- Parquet 변환 후 장기 보관  
+
+---
+
+## **📌 3. 최적화 전략**  
+✅ **데이터 조회 최적화**  
+- 최근 데이터는 **SQLite (빠른 조회)**  
+- 장기 데이터는 **Parquet 저장 (저장 공간 절약)**  
+
+✅ **Binance API 호출 최적화**  
+- 주문 상태는 **주기적으로 업데이트 (완료된 주문만 저장)**  
+- 체결된 거래만 `trades` 테이블로 이동  
+
+✅ **백테스트 속도 최적화**  
+- 과거 데이터는 **Parquet + Dask 활용 (대량 데이터 처리)**  
+- 전략별 성능 분석 결과 **성능 메트릭 테이블에 저장**  
+
+---
+
+## **📌 4. 데이터 흐름 (Cursor 최적화)**  
+📌 **Cursor(커서)에서 이해하기 쉽게 데이터 흐름 구조화**  
+
+```
+📡 [WebSocket] → market_data (실시간 저장)  
+📝 [주문 생성] → orders (미체결 저장)  
+✅ [체결 발생] → trades (체결 내역 저장)  
+📊 [전략 적용] → strategies (사용 전략 기록)  
+📈 [수익 분석] → performance_metrics (실적 저장)  
+```
+
+---
+
+## **📌 5. 결론: 최적화된 DB 스키마 구축 완료!**  
+🚀 **Cursor에서 쉽게 볼 수 있도록 테이블 구조 정리**  
+🚀 **SQLite + Parquet 조합으로 빠른 조회 & 장기 저장 최적화**  
+🚀 **Binance API 최적화 적용 → 최소 호출 & 자동 데이터 관리**  
+
+🔥 **이제 트레이딩 봇의 데이터 저장 구조는 완벽!** 🚀
