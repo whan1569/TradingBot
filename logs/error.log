@@ -1,0 +1,202 @@
+2025-02-17 13:58:09.277 | ERROR    | utils.error_handler:log_error:24 - Error: binance {"code":-2008,"msg":"Invalid Api-Key ID."} | Additional Info: BTCUSDT 현재가 조회 실패
+2025-02-17 13:58:09.282 | ERROR    | utils.error_handler:log_error:24 - Error: binance {"code":-2008,"msg":"Invalid Api-Key ID."} | Additional Info: 가격 데이터 일관성 테스트 실패
+2025-02-17 13:58:09.432 | ERROR    | utils.error_handler:log_error:24 - Error: binance {"code":-2008,"msg":"Invalid Api-Key ID."} | Additional Info: BTCUSDT 현재가 조회 실패
+2025-02-17 13:58:09.436 | ERROR    | utils.error_handler:log_error:24 - Error: binance {"code":-2008,"msg":"Invalid Api-Key ID."} | Additional Info: 가격 업데이트 속도 테스트 실패
+2025-02-17 14:05:53.005 | ERROR    | utils.error_handler:log_error:24 - Error: 'price' not found in {'e': 'trade', 'E': 1739768753004, 's': 'BTCUSDT', 't': 4564033233, 'p': '95955.87000000', 'q': '0.04893000', 'T': 1739768753004, 'm': True, 'M': True} | Additional Info: WebSocket 테스트 실패
+2025-02-17 14:06:28.043 | ERROR    | utils.error_handler:log_error:24 - Error: 'price' not found in {'e': 'trade', 'E': 1739768788039, 's': 'BTCUSDT', 't': 4564033984, 'p': '95971.13000000', 'q': '0.00140000', 'T': 1739768788039, 'm': True, 'M': True} | Additional Info: WebSocket 테스트 실패
+2025-02-17 14:06:33.777 | ERROR    | utils.error_handler:log_error:24 - Error: 'price' not found in {'e': 'trade', 'E': 1739768793769, 's': 'BTCUSDT', 't': 4564034014, 'p': '95971.14000000', 'q': '0.00042000', 'T': 1739768793768, 'm': False, 'M': True} | Additional Info: WebSocket 테스트 실패
+2025-02-17 14:19:02.676 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.001&price=91331.043&timeInForce=GTC | Additional Info: 주문 생성 실패
+2025-02-17 14:19:02.676 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.001&price=91331.043&timeInForce=GTC | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:19:02.700 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:19:02.701 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:19:02.702 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:19:02.702 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:19:02.703 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.163 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739769746104&recvWindow=5000&price=91273.01&timeInForce=GTC&signature=6b51f958b57695d5915d0528dfaa29ebae098ed215e5cf27163b27e174ecc42d | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.163 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739769746104&recvWindow=5000&price=91273.01&timeInForce=GTC&signature=6b51f958b57695d5915d0528dfaa29ebae098ed215e5cf27163b27e174ecc42d | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:22:26.186 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.187 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.187 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.187 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:22:26.187 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.537 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2014,"msg":"API-key format invalid."} | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.549 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739769836453&recvWindow=5000&price=91169.70&timeInForce=GTC&signature=a1fe7f1093232a9724cf35129891e312d437f1f106c3d891ab06f6754d5d8800 | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.551 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739769836453&recvWindow=5000&price=91169.70&timeInForce=GTC&signature=a1fe7f1093232a9724cf35129891e312d437f1f106c3d891ab06f6754d5d8800 | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:23:56.565 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.567 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.569 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.571 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:23:56.572 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.826 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2014,"msg":"API-key format invalid."} | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.826 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770154760&recvWindow=5000&price=91216.42&timeInForce=GTC&signature=64970a3582c4f7777304ed3c968d6f8df0902bf2d7b96a27f669ec7c20a9b297 | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.842 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770154760&recvWindow=5000&price=91216.42&timeInForce=GTC&signature=64970a3582c4f7777304ed3c968d6f8df0902bf2d7b96a27f669ec7c20a9b297 | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:29:14.860 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.862 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.862 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.863 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:29:14.864 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.831 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."} | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.831 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770222765&recvWindow=5000&price=91262.19&timeInForce=GTC&signature=ecae65aaeb35d0461c19811ef611ab9f665590d81692a6843da66aa21287db08 | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.831 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770222765&recvWindow=5000&price=91262.19&timeInForce=GTC&signature=ecae65aaeb35d0461c19811ef611ab9f665590d81692a6843da66aa21287db08 | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:30:22.847 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.848 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.849 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.850 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:30:22.851 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.048 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."} | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.048 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770260981&recvWindow=5000&price=91271.96&timeInForce=GTC&signature=0e7c8e6ef22d8d4e61fb0b537617f574ed6bab81de4b281ea977f656b6f9bd17 | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.048 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770260981&recvWindow=5000&price=91271.96&timeInForce=GTC&signature=0e7c8e6ef22d8d4e61fb0b537617f574ed6bab81de4b281ea977f656b6f9bd17 | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:31:01.067 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.073 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.074 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.075 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:31:01.076 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.050 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."} | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.068 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770393987&recvWindow=5000&price=91285.32&timeInForce=GTC&signature=1ae43e6e76bd6e144da8c5f7d5989b4625727a1c8a9ed4f809d44800207566ff | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.070 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770393987&recvWindow=5000&price=91285.32&timeInForce=GTC&signature=1ae43e6e76bd6e144da8c5f7d5989b4625727a1c8a9ed4f809d44800207566ff | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:33:14.081 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.083 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.084 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.085 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:33:14.085 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.931 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2015,"msg":"Invalid API-key, IP, or permissions for action."} | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.937 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770570866&recvWindow=5000&price=91360.64&timeInForce=GTC&signature=3095a0dd0e42acf3fe68e1e3ca444f4f14ed79a83d216d7928a23aad6bb465fd | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.939 | ERROR    | utils.error_handler:log_error:24 - Error: 401 Client Error: Unauthorized for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739770570866&recvWindow=5000&price=91360.64&timeInForce=GTC&signature=3095a0dd0e42acf3fe68e1e3ca444f4f14ed79a83d216d7928a23aad6bb465fd | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:36:10.954 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.955 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.956 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.957 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:36:10.959 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.593 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-1022,"msg":"Signature for this request is not valid."} | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.593 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739771040517&recvWindow=5000&price=91379.15&timeInForce=GTC&signature=6d0d088b622b6007001e4e9acd8dfc3efbd9cd3c9b5d1822c8c9cbf4f56d78e1 | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.593 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order/test?symbol=BTCUSDT&type=LIMIT&side=BUY&quantity=0.00100&timestamp=1739771040517&recvWindow=5000&price=91379.15&timeInForce=GTC&signature=6d0d088b622b6007001e4e9acd8dfc3efbd9cd3c9b5d1822c8c9cbf4f56d78e1 | Additional Info: 주문 생성 테스트 실패
+2025-02-17 14:44:00.608 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.610 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.611 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.611 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:44:00.612 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:47:08.610 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:47:08.611 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:47:08.611 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:47:08.612 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:47:08.612 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:50:23.762 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:50:23.762 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=999999999&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771423707&signature=692900e2a7d136049864c609faa41dd6658353099c0b7648857fd6b33101e469 | Additional Info: 주문 취소 실패
+2025-02-17 14:50:23.955 | ERROR    | utils.error_handler:log_error:24 - Error: unexpectedly None | Additional Info: 주문 취소 테스트 실패
+2025-02-17 14:50:24.142 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:50:24.142 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:50:24.142 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:50:24.142 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:50:24.142 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:52:03.232 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:52:03.248 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771523179&signature=2f7e9519e473d0d145caa543bd55c8f57a0a1f34195c5be082cc84aeac1ece79 | Additional Info: 주문 취소 실패
+2025-02-17 14:52:03.549 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:52:03.560 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:52:03.560 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:52:03.561 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:52:03.562 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:53:53.216 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:53:53.221 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771633154&signature=474e7cce732b9cb116830e72e6706bb3f60f77afe07028208e2423b5bec954a9 | Additional Info: 주문 취소 실패
+2025-02-17 14:53:53.582 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 14:53:53.582 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771633523&signature=18449f9490f33f9a79dbc6dc519dfc2d553fe26cdb9b0641efc4d0f2321a871e | Additional Info: 주문 조회 실패
+2025-02-17 14:53:53.773 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:53:53.775 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:53:53.775 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:53:53.776 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:53:53.777 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:55:06.402 | ERROR    | utils.error_handler:log_error:24 - Error: 'SPOT' not found in ['TRD_GRP_057'] | Additional Info: 계정 정보 조회 테스트 실패
+2025-02-17 14:55:06.748 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:55:06.750 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771706670&signature=237cac139dc2f1114feb643f2b8ccdc3641b21ed9bfd6df7cbf772639d9f1d7c | Additional Info: 주문 취소 실패
+2025-02-17 14:55:07.092 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 14:55:07.092 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771707022&signature=1cd2b56c161582124ecf1114f7cfc6955577575ab66ea703350dc5151326e527 | Additional Info: 주문 조회 실패
+2025-02-17 14:55:07.253 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:55:07.259 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:55:07.259 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:55:07.260 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:55:07.261 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:56:03.557 | ERROR    | utils.error_handler:log_error:24 - Error: 'SPOT' not found in ['TRD_GRP_057'] | Additional Info: 계정 정보 조회 테스트 실패
+2025-02-17 14:56:03.871 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:56:03.871 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771763818&signature=06f39eac54a473662b0e987104be521642c57da32c79aa5de524310009046828 | Additional Info: 주문 취소 실패
+2025-02-17 14:56:04.251 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 14:56:04.251 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771764172&signature=6b5389fa7a259616f83dfef161a37ad21a6cc706d8dc2af53d47292fbade700f | Additional Info: 주문 조회 실패
+2025-02-17 14:56:04.413 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:56:04.414 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:56:04.414 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:56:04.415 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:56:04.416 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:57:23.534 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:57:23.538 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771843453&signature=ee39b882e060c5429fafe3e7d1cae7a20b5fee788e03e7c45fabf3c981a1c022 | Additional Info: 주문 취소 실패
+2025-02-17 14:57:23.904 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 14:57:23.904 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771843842&signature=ecbe86be9af66c426211f9a7be64870f8649db419cf600a7e63cea2ebfe5b10f | Additional Info: 주문 조회 실패
+2025-02-17 14:57:24.096 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:57:24.098 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:57:24.099 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:57:24.101 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:57:24.103 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:59:41.933 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 14:59:41.936 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771981875&signature=e93202c6c95b2fc1496bca7fe0aa349f390dc94d2a5d335b449673f89a46d452 | Additional Info: 주문 취소 실패
+2025-02-17 14:59:42.281 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 14:59:42.284 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739771982212&signature=3f18c0ece9aa9f7987c1fbaed6acbdd326e5d0462f60be2a07a1fed201503e56 | Additional Info: 주문 조회 실패
+2025-02-17 14:59:42.447 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:59:42.448 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 14:59:42.449 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 14:59:42.450 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 14:59:42.451 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:00:50.166 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 15:00:50.172 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739772050113&signature=f7085e91d2000db9d431b8d5aa354396f2501aaac3b7ee203ab6fedc588c0541 | Additional Info: 주문 취소 실패
+2025-02-17 15:00:50.618 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 15:00:50.619 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739772050550&signature=d23d36be0a96d42eb23e43db55612610db1519fbb240428f8eb2e5925c035412 | Additional Info: 주문 조회 실패
+2025-02-17 15:00:50.828 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:00:50.829 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 15:00:50.829 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 15:00:50.830 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:00:50.831 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:08:46.743 | ERROR    | utils.error_handler:log_error:24 - Error: 'TestTradingStrategy' object has no attribute 'symbol' | Additional Info: 손익 계산 테스트 실패
+2025-02-17 15:09:33.716 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 15:10:16.237 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 15:10:49.840 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 15:27:16.785 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 15:27:16.789 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739773636715&signature=1264e73a494de7dd20850c7b99f55611a520f6d33aad7ca37f317aea49287f51 | Additional Info: 주문 취소 실패
+2025-02-17 15:27:17.233 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 15:27:17.233 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739773637155&signature=9b19551a99a1efcc0e6efe5c6c53e80157a9ed3369170014bd96399d6cbe2059 | Additional Info: 주문 조회 실패
+2025-02-17 15:27:17.408 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:27:17.409 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 15:27:17.411 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 15:27:17.411 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:27:17.411 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:35:33.939 | ERROR    | utils.error_handler:log_error:24 - Error: 2 != 4 | Additional Info: 성능 지표 테스트 실패
+2025-02-17 15:35:46.203 | ERROR    | utils.error_handler:log_error:24 - Error: 2 != 4 | Additional Info: 성능 지표 테스트 실패
+2025-02-17 15:41:10.848 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 실행 실패
+2025-02-17 15:41:10.848 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 테스트 실패
+2025-02-17 15:41:50.495 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 실행 실패
+2025-02-17 15:41:50.497 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 테스트 실패
+2025-02-17 15:41:51.489 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 15:41:52.038 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 실행 실패
+2025-02-17 15:41:52.040 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 전략 최적화 실패
+2025-02-17 15:41:52.040 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 전략 최적화 테스트 실패
+2025-02-17 15:42:11.526 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 실행 실패
+2025-02-17 15:42:11.526 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 테스트 실패
+2025-02-17 15:42:12.931 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 백테스트 실행 실패
+2025-02-17 15:42:12.940 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 전략 최적화 실패
+2025-02-17 15:42:12.941 | ERROR    | utils.error_handler:log_error:24 - Error: 'BinanceAPI' object has no attribute 'get_historical_klines' | Additional Info: 전략 최적화 테스트 실패
+2025-02-17 15:46:43.859 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 15:46:43.863 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739774803793&signature=1f3f764c9726a5e3bac289b483d4de135031619ea2cf805fcb79f0d16639a454 | Additional Info: 주문 취소 실패
+2025-02-17 15:46:44.237 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 15:46:44.253 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739774804181&signature=d6a3f54e349d07648d97d68629d78ad3ac01f85336ea7a117ac6815f0bb6f5ab | Additional Info: 주문 조회 실패
+2025-02-17 15:46:44.423 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:46:44.435 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 15:46:44.436 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 15:46:44.437 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:46:44.438 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:51:12.964 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답:  | Additional Info: 주문 취소 실패
+2025-02-17 15:51:12.968 | ERROR    | utils.error_handler:log_error:24 - Error: 404 Client Error: Not Found for url: https://api.binance.com/api/v3/order/test?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739775072896&signature=69f178ff3644193eccc1fe71c630ddffbe04be27a332bc3b75b614974c7626a6 | Additional Info: 주문 취소 실패
+2025-02-17 15:51:13.329 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2026,"msg":"Order was canceled or expired with no executed qty over 90 days ago and has been archived."} | Additional Info: 주문 조회 실패
+2025-02-17 15:51:13.329 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?orderId=12345&recvWindow=5000&symbol=BTCUSDT&timestamp=1739775073264&signature=973cd8e6f9dd5949fdebb4880f781bb235e110abc86395c8d136ecebbf55d2e8 | Additional Info: 주문 조회 실패
+2025-02-17 15:51:13.504 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:51:13.505 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 주문 타입입니다. 가능한 값: ['MARKET', 'LIMIT'] | Additional Info: 주문 생성 실패
+2025-02-17 15:51:13.505 | ERROR    | utils.error_handler:log_error:24 - Error: 유효하지 않은 거래 구분입니다. 가능한 값: ['BUY', 'SELL'] | Additional Info: 주문 생성 실패
+2025-02-17 15:51:13.506 | ERROR    | utils.error_handler:log_error:24 - Error: 수량은 양수여야 합니다. | Additional Info: 주문 생성 실패
+2025-02-17 15:51:13.507 | ERROR    | utils.error_handler:log_error:24 - Error: LIMIT 주문의 경우 유효한 가격이 필요합니다. | Additional Info: 주문 생성 실패
+2025-02-17 16:00:54.894 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 16:03:08.670 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 16:03:42.267 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패

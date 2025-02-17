@@ -1,9 +1,0 @@
-{
-    "sqlite": {
-        "path": "data/database.db"
-    },
-    "redis": {
-        "host": "localhost",
-        "port": 6379
-    }
-}

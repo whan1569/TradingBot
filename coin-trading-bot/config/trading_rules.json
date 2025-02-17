@@ -1,5 +1,0 @@
-{
-    "max_trades_per_day": 10,
-    "min_trade_interval": 60,
-    "risk_percentage": 1.0
-}

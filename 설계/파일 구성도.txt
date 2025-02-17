@@ -1,4 +1,4 @@
-D:\TradingBot\coin-trading-bot\
+TradingBot
 ├── config/                         # 설정 파일 디렉토리
 │   ├── config.json                 # 메인 설정 파일 (거래 설정, API 설정 등)
 │   ├── api_keys.json               # API 키 저장 (보안 정보)

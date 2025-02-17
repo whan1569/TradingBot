@@ -1,0 +1,18 @@
+# 기본 환경 라이브러리
+numpy==1.23.5
+pandas==1.5.3
+scipy==1.10.1
+matplotlib==3.6.3
+seaborn==0.12.2
+tqdm==4.66.1
+
+# 트레이딩 관련 라이브러리
+ccxt==4.3.5
+requests==2.31.0
+
+# 유틸리티
+python-dotenv==1.0.0
+loguru==0.7.0
+
+# WebSocket 관련
+websockets==10.4
