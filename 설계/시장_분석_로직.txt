@@ -1,0 +1,55 @@
+# 시장 분석 로직 설명
+
+## 1. 데이터 수집
+### 1.1 기본 데이터
+- current_price: 현재 BTC 가격 (USDT)
+- price_change_24h: 24시간 가격 변동률 (%)
+- volume_24h: 24시간 거래량 (BTC)
+
+### 1.2 호가창 분석
+- bid_volume: 매수 주문량 합계
+- ask_volume: 매도 주문량 합계
+- buy_sell_ratio: 매수/매도 주문 비율 (bid_volume / ask_volume)
+
+## 2. 시장 심리 판단 (Market Sentiment)
+### 2.1 강한 매도 신호 (STRONG_SELL)
+- 조건: price_change < -1.0% AND buy_sell_ratio < 0.9
+- 의미: 가격이 1% 이상 하락하고 매수세가 매우 약함
+
+### 2.2 매도 신호 (SELL)
+- 조건: price_change < -0.5% AND buy_sell_ratio < 1.0
+- 의미: 가격이 0.5% 이상 하락하고 매수세가 매도세보다 약함
+
+### 2.3 강한 매수 신호 (STRONG_BUY)
+- 조건: price_change > 1.0% AND buy_sell_ratio > 1.1
+- 의미: 가격이 1% 이상 상승하고 매수세가 매우 강함
+
+### 2.4 매수 신호 (BUY)
+- 조건: price_change > 0.5% AND buy_sell_ratio > 1.0
+- 의미: 가격이 0.5% 이상 상승하고 매수세가 매도세보다 강함
+
+### 2.5 중립 (NEUTRAL)
+- 조건: 위의 모든 조건에 해당하지 않는 경우
+- 의미: 뚜렷한 시장 방향성이 보이지 않음
+
+## 3. 분석 결과 예시
+```json
+{
+    "current_price": 96200.86,        // BTC 현재가
+    "price_change_24h": -1.025,       // 24시간 가격 변동률
+    "volume_24h": 11374.89771,        // 24시간 거래량
+    "buy_sell_ratio": 0.5521,         // 매수/매도 비율
+    "market_sentiment": "STRONG_SELL"  // 시장 심리
+}
+```
+
+## 4. 활용 방안
+1. 자동 매매 신호 생성
+2. 리스크 관리
+3. 포지션 크기 조절
+4. 알림 생성
+
+## 5. 주의사항
+- 급격한 시장 변동 시 신뢰도 하락 가능
+- 거래량이 적을 때는 신뢰도 하락
+- 여러 지표와 함께 사용 권장 

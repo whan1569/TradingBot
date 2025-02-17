@@ -200,3 +200,28 @@
 2025-02-17 16:00:54.894 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
 2025-02-17 16:03:08.670 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
 2025-02-17 16:03:42.267 | ERROR    | utils.error_handler:log_error:24 - Error: 'SELL' is not None | Additional Info: 포지션 관리 테스트 실패
+2025-02-17 18:02:06.519 | ERROR    | utils.error_handler:log_error:24 - Error: name 'initialize_api' is not defined | Additional Info: 메인 프로세스 에러
+2025-02-17 18:06:01.445 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'execute' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:06:06.451 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'execute' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:06:11.455 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'execute' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:06:16.471 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'execute' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:10:23.431 | ERROR    | utils.error_handler:log_error:24 - Error: API 응답: {"code":-2010,"msg":"Account has insufficient balance for requested action."} | Additional Info: 주문 생성 실패
+2025-02-17 18:10:23.437 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?price=96221.31&quantity=0.00100&recvWindow=5000&side=SELL&symbol=BTCUSDT&timeInForce=GTC&timestamp=1739783423350&type=LIMIT&signature=8ac8ae2ba9b80569fbc88d7a6789bc3235a5a9ffbc9d781d8fd8cc1015f456d9 | Additional Info: 주문 생성 실패
+2025-02-17 18:10:23.440 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?price=96221.31&quantity=0.00100&recvWindow=5000&side=SELL&symbol=BTCUSDT&timeInForce=GTC&timestamp=1739783423350&type=LIMIT&signature=8ac8ae2ba9b80569fbc88d7a6789bc3235a5a9ffbc9d781d8fd8cc1015f456d9 | Additional Info: 거래 실행 실패
+2025-02-17 18:10:23.442 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?price=96221.31&quantity=0.00100&recvWindow=5000&side=SELL&symbol=BTCUSDT&timeInForce=GTC&timestamp=1739783423350&type=LIMIT&signature=8ac8ae2ba9b80569fbc88d7a6789bc3235a5a9ffbc9d781d8fd8cc1015f456d9 | Additional Info: 포지션 업데이트 실패
+2025-02-17 18:10:23.444 | ERROR    | utils.error_handler:log_error:24 - Error: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/order?price=96221.31&quantity=0.00100&recvWindow=5000&side=SELL&symbol=BTCUSDT&timeInForce=GTC&timestamp=1739783423350&type=LIMIT&signature=8ac8ae2ba9b80569fbc88d7a6789bc3235a5a9ffbc9d781d8fd8cc1015f456d9 | Additional Info: 전략 실행 중 에러
+2025-02-17 18:10:28.833 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'process_trading' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:10:34.234 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'process_trading' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:10:39.595 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'process_trading' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:10:45.010 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'process_trading' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:13:35.326 | ERROR    | utils.error_handler:log_error:24 - Error: 'TradingStrategy' object has no attribute 'process_trading' | Additional Info: 전략 실행 중 에러
+2025-02-17 18:14:44.669 | ERROR    | utils.error_handler:log_error:24 - Error: BinanceAPI.__init__() got an unexpected keyword argument 'test_mode' | Additional Info: API 초기화 실패
+2025-02-17 18:14:44.669 | ERROR    | utils.error_handler:log_error:24 - Error: BinanceAPI.__init__() got an unexpected keyword argument 'test_mode' | Additional Info: 메인 프로세스 에러
+2025-02-17 18:15:36.682 | ERROR    | utils.error_handler:log_error:24 - Error: BinanceAPI.__init__() got an unexpected keyword argument 'test_mode' | Additional Info: API 초기화 실패
+2025-02-17 18:15:36.682 | ERROR    | utils.error_handler:log_error:24 - Error: BinanceAPI.__init__() got an unexpected keyword argument 'test_mode' | Additional Info: 메인 프로세스 에러
+2025-02-17 18:24:38.417 | ERROR    | utils.error_handler:log_error:24 - Error: BinanceAPI.__init__() got an unexpected keyword argument 'test_mode' | Additional Info: 시스템 초기화 실패
+2025-02-17 18:27:13.599 | ERROR    | utils.error_handler:log_error:24 - Error: TradingStrategy.__init__() got an unexpected keyword argument 'api' | Additional Info: 시스템 초기화 실패
+2025-02-17 18:28:57.226 | ERROR    | utils.error_handler:log_error:24 - Error: TradingStrategy.__init__() got an unexpected keyword argument 'binance_api' | Additional Info: 시스템 초기화 실패
+2025-02-17 18:29:40.975 | ERROR    | utils.error_handler:log_error:24 - Error: TradingStrategy.__init__() got an unexpected keyword argument 'binance_api' | Additional Info: 시스템 초기화 실패
+2025-02-17 18:30:16.246 | ERROR    | utils.error_handler:log_error:24 - Error: TradingStrategy.__init__() got an unexpected keyword argument 'api' | Additional Info: 시스템 초기화 실패
+2025-02-17 18:30:20.874 | ERROR    | utils.error_handler:log_error:24 - Error: TradingStrategy.__init__() got an unexpected keyword argument 'api' | Additional Info: 시스템 초기화 실패

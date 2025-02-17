@@ -3,10 +3,10 @@ import os
 from . import error_handler
 
 class TradingStrategy:
-    def __init__(self, api_connector):
+    def __init__(self, binance_api, symbol='BTCUSDT', auto_trading=True):
         """거래 전략 초기화"""
-        self.api = api_connector
-        self.symbol = "BTCUSDT"
+        self.binance_api = binance_api
+        self.symbol = symbol
         self.position = None
         self.last_trade_price = None
         self.trade_count = 0
@@ -19,17 +19,17 @@ class TradingStrategy:
         self.take_profit = 2.0       # 익절 기준 (%)
         
         # 환경 변수에서 auto_trading 설정 가져오기
-        self.auto_trading = os.getenv('AUTO_TRADING', 'false').lower() == 'true'
+        self.auto_trading = auto_trading
         
-        error_handler.log_info(f"거래 전략 초기화 완료 (auto_trading: {self.auto_trading})")
+        error_handler.log_info(f"거래 전략 초기화 완료 (auto_trading: {auto_trading})")
 
     def analyze_market(self):
         """시장 분석"""
         try:
             # 시장 데이터 수집
-            current_price = self.api.get_ticker_price(self.symbol)
-            market_summary = self.api.get_market_summary(self.symbol)
-            depth = self.api.get_market_depth(self.symbol, limit=10)
+            current_price = self.binance_api.get_ticker_price(self.symbol)
+            market_summary = self.binance_api.get_market_summary(self.symbol)
+            depth = self.binance_api.get_market_depth(self.symbol, limit=10)
             
             # 기본 시장 분석
             price_change_24h = market_summary['price_change_percent']
@@ -120,15 +120,15 @@ class TradingStrategy:
         """거래 실행"""
         try:
             if price is None:
-                price = self.api.get_ticker_price(self.symbol)
+                price = self.binance_api.get_ticker_price(self.symbol)
             
-            order = self.api.create_order(
+            order = self.binance_api.create_order(
                 symbol=self.symbol,
                 order_type="LIMIT",
                 side=side,
                 quantity=self.position_size,
                 price=price,
-                test=True  # 테스트 모드
+                test=False  # 테스트 모드 비활성화
             )
             
             self.last_trade_price = float(price)
@@ -148,10 +148,10 @@ class TradingStrategy:
             if self.position is None:
                 return False
                 
-            current_price = self.api.get_ticker_price(self.symbol)
+            current_price = self.binance_api.get_ticker_price(self.symbol)
             close_side = "SELL" if self.position == "BUY" else "BUY"
             
-            order = self.api.create_order(
+            order = self.binance_api.create_order(
                 symbol=self.symbol,
                 order_type="LIMIT",
                 side=close_side,
@@ -274,7 +274,7 @@ class TradingStrategy:
             self.balance = initial_balance
             
             # 과거 데이터 수집
-            historical_data = self.api.get_historical_klines(
+            historical_data = self.binance_api.get_historical_klines(
                 self.symbol,
                 interval="1h",
                 start_str=start_date,
