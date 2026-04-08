@@ -1,51 +1,81 @@
 # TradingBot
 
-자동 트레이딩 시스템
+## Overview
 
-## 현재 제한사항 및 임시 설정
+TradingBot is a modular Python-based trading system designed for market data analysis and automated trading workflows.
 
-### API 관련
-- Rate Limit: 실제 2400/분 중 1200/분만 사용 (안전마진 확보)
-- 가격 조회 간격: 최소 1초 (캐싱 적용)
-- WebSocket 재연결: 최대 5회 시도
+Unlike simple script-based bots, this project is structured with separated components for exchange integration, execution logic, strategy management, configuration, and testing.
 
-### 테스트 관련
-- 실제 거래 기능 비활성화 (테스트 모드)
-- 일부 에러 케이스 시뮬레이션 제외
-- WebSocket 연결 테스트 시 짧은 시간만 유지
+---
 
-### 향후 개선 사항
-- [ ] WebSocket으로 실시간 가격 수신 전환
-- [ ] Rate Limit 동적 조정 기능
-- [ ] 실제 거래 기능 활성화
-- [ ] 전체 에러 케이스 테스트 추가
+## Architecture
 
-## 환경 설정
+The system is organized into multiple modules:
 
-### 테스트 환경
-- `auto_trading = False`: 자동 거래 비활성화
-- `test = True`: API 호출 시 테스트 모드 사용
-- `.env.test` 파일의 설정 사용
+* `exchanges/` → API integration (e.g., Binance)
+* `execution/` → order handling and trade execution logic
+* `strategies/` → signal generation, event detection, and strategy selection
+* `models/` → experimental components (including reinforcement learning modules)
+* `config/` → API keys, trading rules, logging, and database settings
+* `tests/` → validation for API, execution, strategies, and WebSocket behavior
+* `dashboard/`, `notification/`, `utils/` → supporting components
 
-### 운영 환경
-- `auto_trading = True`: 자동 거래 활성화 필수
-- `test = False`: 실제 API 호출 사용
-- `.env.prod` 파일의 설정 사용
+This structure allows easier extension, testing, and future scaling.
 
-> ⚠️ **주의**: 실제 운영 환경에서는 반드시 `auto_trading = True`로 설정해야 자동 거래가 작동합니다.
+---
 
-## 설정 파일 예시
+## Core Features
 
-**.env.prod**:
-```
-AUTO_TRADING=true
-API_TEST_MODE=false
-...
-```
+* Modular trading system design
+* Binance API integration
+* Strategy-based trading workflow
+* Risk management and signal generation modules
+* Environment-based execution (test vs production)
+* Basic test coverage for key components
 
-**.env.test**:
-```
-AUTO_TRADING=false
-API_TEST_MODE=true
-...
-```
+---
+
+## Current Behavior
+
+* Initializes trading workflow using Binance API
+* Runs market analysis loop (default: BTCUSDT)
+* Executes logic based on selected strategy modules
+* Operates in safe test mode by default
+
+---
+
+## Environment Configuration
+
+### Test Mode
+
+* Trading disabled
+* Uses test API
+* `.env.test`
+
+### Production Mode
+
+* Trading enabled
+* Uses live API
+* `.env.prod`
+
+> Trading will not execute unless `AUTO_TRADING=true` is set.
+
+---
+
+## Limitations
+
+* Live trading is currently disabled by default
+* 일부 전략 및 모델은 실험 단계
+* Full error-case coverage not yet implemented
+* Real-time streaming (WebSocket) is not fully integrated
+
+---
+
+## Future Improvements
+
+* Full WebSocket-based real-time data handling
+* Expanded testing coverage
+* Strategy performance evaluation and optimization
+* Safer production execution controls
+
+
